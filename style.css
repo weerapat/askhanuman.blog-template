@@ -1,0 +1,81 @@
+/*
+Theme Name: Askhanuman Marketing blog.
+
+@Description: For Marketing theme can manage content under the askhanuman.co.th
+Version: 1.0
+@Author: weerapat@alphafounders.com
+
+*/
+
+
+
+
+/**
+ * Table of Contents:
+ *
+ * 1.0 - Reset
+ * 2.0 - Repeatable Patterns
+ * 3.0 - Basic Structure
+ * 4.0 - Header
+ * 5.0 - Navigation
+ * 6.0 - Content
+ *   6.1 - Post Thumbnail
+ *   6.2 - Entry Header
+ *   6.3 - Entry Meta
+ *   6.4 - Entry Content
+ *   6.5 - Galleries
+ *   6.6 - Post Formats
+ *   6.7 - Post/Image/Paging Navigation
+ *   6.8 - Attachments
+ *   6.9 - Archives
+ *   6.10 - Contributor Page
+ *   6.11 - 404 Page
+ *   6.12 - Full-width
+ *   6.13 - Singular
+ *   6.14 - Comments
+ * 7.0 - Sidebar
+ *   7.1 - Widgets
+ *   7.2 - Content Sidebar Widgets
+ * 8.0 - Footer
+ * 9.0 - Featured Content
+ * 10.0 - Multisite
+ * 11.0 - Media Queries
+ * 12.0 - Print
+ * -----------------------------------------------------------------------------
+ */
+
+
+
+
+
+
+/**
+ * 5.0 Navigation
+ * -----------------------------------------------------------------------------
+ */
+
+
+nav {
+    background-color: #ffffff;
+    box-shadow: -1px 2px 5px 3px #c2c2c2;
+    color: #b1b1b1;
+    font-size: 20px;
+    height: 55px;
+    padding-top: 15px;
+    position: relative;
+    width: 100%;
+    z-index: 99;
+}
+
+
+nav li .sublevel {
+  background-color: #f2f2f2;
+  box-shadow: 0 5px 1px rgba(194, 194, 194, 0.5);
+  color: #666666;
+  left: 0;
+  padding-left: 5px;
+  position: absolute;
+  top: 55px;
+  visibility: hidden;
+  width: 100%;
+}
