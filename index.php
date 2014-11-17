@@ -1,14 +1,14 @@
 <?php get_header(); ?>
 
 
-<div class="container">
+<div class="container main-content">
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-lg-3 col-md-4">
             <?php get_sidebar(); ?>
         </div> 
 
-        <div class="col-md-6">
+        <div class="col-lg-6 col-md-8">
 
             <div class="content">
             <?php if ( have_posts() ) : ?>
@@ -40,9 +40,31 @@
             </div>
         </div>  
 
-        <div class="col-md-3">
-            <?php get_sidebar(); ?>
-        </div> 
+
+
+        <!-- Right bar widget --> 
+
+        <!-- Trustbox  --> 
+
+        <div class="col-md-3 visible-lg trustbox">
+
+            
+
+            <div class="padding-around">
+                <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
+                    <li>
+                        <div class="trust-shield-30s pull-left"></div>
+                        <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
+                    </li>
+                    <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
+                    <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
+                    <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
+                    <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
+                </ul>
+            </div>
+
+        </div>
+
 
     </div>
 

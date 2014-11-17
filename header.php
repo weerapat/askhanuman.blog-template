@@ -17,6 +17,7 @@
 	
 	<!-- Styles cloning from askhanuman.co.th layout.less file -->
 	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/askhanuman.css" media="screen" type="text/css" />
+	<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/sprite-images.css" media="screen" type="text/css" />
 
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css"  />
 	<!--[if lt IE 9]>

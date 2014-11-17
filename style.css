@@ -46,7 +46,14 @@ Version: 1.0
 
 
 
+/**
+ * 3.0 - Basic Structure
+ * -----------------------------------------------------------------------------
+ */
 
+.main-content{
+  padding-top: 80px; padding-bottom: 100px;
+}
 
 
 /**
@@ -79,3 +86,39 @@ nav li .sublevel {
   visibility: hidden;
   width: 100%;
 }
+
+
+
+
+/**
+ * 7.0 - Sidebar
+ * -----------------------------------------------------------------------------
+ */
+
+
+/**
+ * 7.2 - Content Sidebar Widgets
+ * -----------------------------------------------------------------------------
+ */
+
+.trustbox {
+    background-color: #f7f7f7;
+    padding: 10px;
+    max-height: 294px;
+    min-height: 294px;
+}
+
+.trustbox .list-trust {
+  color: #808080;
+  font-size: 17px;
+  width: 100%;
+}
+
+.trustbox .list-trust li {
+  margin-bottom: 20px;
+  min-height: 38px;
+  vertical-align: top;
+  width: 100%;
+}
+
+.trustbox .list-trust .trust-text { padding-left: 42px; padding-top: 6px; }
