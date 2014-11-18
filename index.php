@@ -10,6 +10,16 @@
 
         <div class="col-lg-7 col-md-8">
 
+
+
+            <?php
+                // Set limit of the post in front page to 10
+                $page_num = $paged;
+                if ($pagenum='') $pagenum =1;
+                query_posts('showposts=10&paged='.$page_num); 
+            ?>
+
+
             <div class="content">
             <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
@@ -36,8 +46,11 @@
                     <?php edit_post_link(); ?>
                     <?php wp_link_pages(); ?>
                 </div><!--end entry-->
+
                 <div class="post-footer">
-                    <div class="comments"><?php comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments' ); ?></div>
+
+
+
                 </div><!--end post footer-->
 
               </div><!--end post-->
