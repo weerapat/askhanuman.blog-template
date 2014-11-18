@@ -4,16 +4,22 @@
 <div class="container main-content">
 
     <div class="row">
-        <div class="col-lg-3 col-md-4">
+        <div class="col-lg-2 col-md-4">
             <?php get_sidebar(); ?>
         </div> 
 
-        <div class="col-lg-6 col-md-8">
+        <div class="col-lg-7 col-md-8">
 
             <div class="content">
             <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
               <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+                <div class="post-header">
+                    <div class="date"><?php the_time( 'M j y' ); ?></div>
+                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="author"><?php the_author(); ?></div>
+                </div><!--end post header-->
 
                 <div class="entry clear">
                     <?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
@@ -25,12 +31,6 @@
                     <div class="comments"><?php comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments' ); ?></div>
                 </div><!--end post footer-->
 
-                <div class="post-header">
-                    <div class="date"><?php the_time( 'M j y' ); ?></div>
-                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="author"><?php the_author(); ?></div>
-                </div><!--end post header-->
-                
               </div><!--end post-->
             <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
               <div class="navigation index">
@@ -47,29 +47,27 @@
 
         <!-- Right bar widget --> 
 
-        <div class="col-md-3 visible-lg ">
+        <div class="col-md-3 visible-lg rightbar-widget">
             <div class="row">
 
                 <!-- Trustbox  --> 
-                <div class="col-md-12 trustbox">
+                <div class="col-md-12 trustbox box">
 
-                    <div class="padding-around">
-                        <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
-                            <li>
-                                <div class="trust-shield-30s pull-left"></div>
-                                <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
-                            </li>
-                            <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
-                            <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
-                            <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
-                            <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
-                        </ul>
-                    </div>
+                    <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
+                        <li>
+                            <div class="trust-shield-30s pull-left"></div>
+                            <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
+                        </li>
+                        <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
+                        <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
+                        <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
+                        <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
+                    </ul>
 
                 </div>
                 <!-- End Trustbox  --> 
 
-                <div class="col-md-12 ">
+                <div class="col-md-12 box">
 
                     <iframe id="trustedcompany-badge" src="//trustedcompany.com/embed/widget/v2?domain=askhanuman.co.th&type=b&review=1&text=a" 
                     width="100%" height="220" frameborder="0" scrolling="no">
@@ -77,7 +75,19 @@
 
                 </div>
 
+                <div class="col-md-12 box">
+                <!-- Facebook like  --> 
+                    <div class="fb-like-box" data-href="https://www.facebook.com/askhanuman" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+                </div>
 
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
             </div>
 
         </div>
