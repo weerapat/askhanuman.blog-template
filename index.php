@@ -14,11 +14,7 @@
             <?php if ( have_posts() ) : ?>
             <?php while ( have_posts() ) : the_post(); ?>
               <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <div class="post-header">
-                    <div class="date"><?php the_time( 'M j y' ); ?></div>
-                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="author"><?php the_author(); ?></div>
-                </div><!--end post header-->
+
                 <div class="entry clear">
                     <?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
                     <?php the_content(); ?>
@@ -28,6 +24,13 @@
                 <div class="post-footer">
                     <div class="comments"><?php comments_popup_link( 'Leave a Comment', '1 Comment', '% Comments' ); ?></div>
                 </div><!--end post footer-->
+
+                <div class="post-header">
+                    <div class="date"><?php the_time( 'M j y' ); ?></div>
+                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="author"><?php the_author(); ?></div>
+                </div><!--end post header-->
+                
               </div><!--end post-->
             <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
               <div class="navigation index">
@@ -44,27 +47,40 @@
 
         <!-- Right bar widget --> 
 
-        <!-- Trustbox  --> 
+        <div class="col-md-3 visible-lg ">
+            <div class="row">
 
-        <div class="col-md-3 visible-lg trustbox">
+                <!-- Trustbox  --> 
+                <div class="col-md-12 trustbox">
 
-            
+                    <div class="padding-around">
+                        <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
+                            <li>
+                                <div class="trust-shield-30s pull-left"></div>
+                                <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
+                            </li>
+                            <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
+                            <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
+                            <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
+                            <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
+                        </ul>
+                    </div>
 
-            <div class="padding-around">
-                <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
-                    <li>
-                        <div class="trust-shield-30s pull-left"></div>
-                        <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
-                    </li>
-                    <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
-                    <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
-                    <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
-                    <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
-                </ul>
+                </div>
+                <!-- End Trustbox  --> 
+
+                <div class="col-md-12 ">
+
+                    <iframe id="trustedcompany-badge" src="//trustedcompany.com/embed/widget/v2?domain=askhanuman.co.th&type=b&review=1&text=a" 
+                    width="100%" height="220" frameborder="0" scrolling="no">
+                    </iframe>
+
+                </div>
+
+
             </div>
 
         </div>
-
 
     </div>
 
