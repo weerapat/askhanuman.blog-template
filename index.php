@@ -16,12 +16,21 @@
               <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
                 <div class="post-header">
-                    <div class="date"><?php the_time( 'M j y' ); ?></div>
-                    <h2><a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="author"><?php the_author(); ?></div>
+                    
+                    <h2 class="title">
+                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
+                            <?php the_title(); ?>
+                        </a>
+                    </h2>
+
+                    <div class="post-meta-infos">
+                        
+                        <em><?php the_time( 'M j ,Y' ); ?> By <strong><?php the_author(); ?></strong></em>
+
+                    </div>
                 </div><!--end post header-->
 
-                <div class="entry clear">
+                <div class="entry-content">
                     <?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
                     <?php the_content(); ?>
                     <?php edit_post_link(); ?>

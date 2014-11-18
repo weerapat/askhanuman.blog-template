@@ -109,5 +109,7 @@
 </footer>
 
 
+<!-- For show admin bar if loged in -->
+<?php wp_footer(); ?>
 </body>
 </html>
