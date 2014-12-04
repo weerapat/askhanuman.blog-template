@@ -2,7 +2,7 @@
 Theme Name: Askhanuman Marketing blog.
 
 @Description: For Marketing teams can manage the content under the askhanuman.co.th URL
-Version: 1.0
+Version: 2.0
 @Author: weerapat@alphafounders.com
 
 */
@@ -115,7 +115,13 @@ nav li .sublevel {
   visibility: hidden;
   width: 100%;
 }
+ 
+/**
+ * 6.2 - Entry Header
+ * -----------------------------------------------------------------------------
+ */
 
+.wp-caption{ width : auto!important; }
 
 
 /**
@@ -369,7 +375,8 @@ nav li .sublevel {
 
 .post-meta-infos{ font-size: 12px; color: #919191; margin-bottom: 20px;}
 
-.entry-content{ color: #666; font-size: 13.5px;} 
+.entry-content{ color: #666; font-size: 13.5px;}
+.entry-content img{ max-width : 100%;} 
 .entry-content ol { padding-left: 20px; }
 /*==   6.6 - Post Formats ==*/
 
@@ -430,6 +437,13 @@ nav li .sublevel {
 .trustbox .list-trust .trust-text { padding-left: 42px; padding-top: 6px; }
 
 
+
+.sidebar-myad {
+    float: left;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
 
 
 /**

@@ -1,122 +1,66 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme and one
+ * of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query,
+ * e.g., it puts together the home page when no home.php file exists.
+ *
+ * @link http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package WordPress
+ * @subpackage Twenty_Fourteen
+ * @since Twenty Fourteen 1.0
+ */
+
+get_header(); 
+//get_sidebar();
+?>
+
+	<div id="main-content" >
+
+	<?php
+		if ( is_front_page() && twentyfourteen_has_featured_posts() ) {
+			// Include the featured content template.
+			get_template_part( 'featured-content' );
+		}
+	?>
+
+		<div id="primary" class="content-area">
+			<div id="content" class="site-content" role="main">
+
+			<?php
+				if ( have_posts() ) :
+					// Start the Loop.
+					while ( have_posts() ) : the_post();
+
+						/*
+						 * Include the post format-specific template for the content. If you want to
+						 * use this in a child theme, then include a file called called content-___.php
+						 * (where ___ is the post format) and that will be used instead.
+						 */
+						get_template_part( 'content', get_post_format() );
+
+					endwhile;
+					// Previous/next post navigation.
+					twentyfourteen_paging_nav();
+
+				else :
+					// If no content, include the "No posts found" template.
+					get_template_part( 'content', 'none' );
+
+				endif;
+			?>
+
+			</div><!-- #content -->
+		</div><!-- #primary -->
+		<?php //get_sidebar( 'content' ); ?>
+	</div><!-- #main-content -->
 
 
-<div class="container main-content">
+<?php
 
-    <div class="row">
-        <div class="col-lg-2 col-md-4">
-            <?php get_sidebar(); ?>
-        </div> 
-
-        <div class="col-lg-7 col-md-8">
-
-
-
-            <?php
-                // Set limit of the post in front page to 10
-                $page_num = $paged;
-                if ($pagenum='') $pagenum =1;
-                query_posts('showposts=10&paged='.$page_num); 
-            ?>
-
-
-            <div class="content">
-            <?php if ( have_posts() ) : ?>
-            <?php while ( have_posts() ) : the_post(); ?>
-              <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
-                <div class="post-header">
-                    
-                    <h2 class="title">
-                        <a href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>">
-                            <?php the_title(); ?>
-                        </a>
-                    </h2>
-
-                    <div class="post-meta-infos">
-                        
-                        <em><?php the_time( 'M j ,Y' ); ?> By <strong><?php the_author(); ?></strong></em>
-
-                    </div>
-                </div><!--end post header-->
-
-                <div class="entry-content">
-                    <?php if ( function_exists( 'add_theme_support' ) ) the_post_thumbnail(); ?>
-                    <?php the_content(); ?>
-                    <?php edit_post_link(); ?>
-                    <?php wp_link_pages(); ?>
-                </div><!--end entry-->
-
-                <div class="post-footer">
-
-
-
-                </div><!--end post footer-->
-
-              </div><!--end post-->
-            <?php endwhile; /* rewind or continue if all posts have been fetched */ ?>
-              <div class="navigation index">
-                <div class="alignleft"><?php next_posts_link( 'Older Entries' ); ?></div>
-                <div class="alignright"><?php previous_posts_link( 'Newer Entries' ); ?></div>
-              </div><!--end navigation-->
-            <?php else : ?>
-            <?php endif; ?>
-
-            </div>
-        </div>  
-
-
-
-        <!-- Right bar widget --> 
-
-        <div class="col-md-3 visible-lg rightbar-widget">
-            <div class="row">
-
-                <!-- Trustbox  --> 
-                <div class="col-md-12 trustbox box">
-
-                    <ul ng-click="selectionFormShow = true" class="list-unstyled list-trust center-block font-thai">
-                        <li>
-                            <div class="trust-shield-30s pull-left"></div>
-                            <div class="trust-text">เปรียบเทียบจาก 30 แบรนด์ ภายใน 30 วินาที</div>
-                        </li>
-                        <li><div class="trust-shield-bath pull-left"></div><div class="trust-text">ยินดีคืนเงิน 100% หากเจอที่อื่นถูกกว่า</div></li>
-                        <li><div class="trust-shield-24h pull-left"></div><div class="trust-text">บริการช่วยเหลือฉุกเฉิน 24 ชม.</div></li>
-                        <li><div class="trust-shield-0per pull-left"></div><div class="trust-text">ผ่อน 0% 10 เดือน จ่ายสดลดอีก 5%</div></li>
-                        <li><div class="trust-shield-gift pull-left"></div><div class="trust-text">แจกของสมนาคุณฟรีมูลค่า4,000บาท</div></li>
-                    </ul>
-
-                </div>
-                <!-- End Trustbox  --> 
-
-                <div class="col-md-12 box">
-
-                    <iframe id="trustedcompany-badge" src="//trustedcompany.com/embed/widget/v2?domain=askhanuman.co.th&type=b&review=1&text=a" 
-                    width="100%" height="220" frameborder="0" scrolling="no">
-                    </iframe>
-
-                </div>
-
-                <div class="col-md-12 box">
-                <!-- Facebook like  --> 
-                    <div class="fb-like-box" data-href="https://www.facebook.com/askhanuman" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
-                </div>
-
-                <div id="fb-root"></div>
-                <script>(function(d, s, id) {
-                  var js, fjs = d.getElementsByTagName(s)[0];
-                  if (d.getElementById(id)) return;
-                  js = d.createElement(s); js.id = id;
-                  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
-                  fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));</script>
-            </div>
-
-        </div>
-
-    </div>
-
+get_footer();
+?>
 </div>
-
-
-<?php get_footer(); ?>
